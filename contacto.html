@@ -15,7 +15,7 @@
   <header class="header">
     <div class="logo">
       <a href="index.html">
-        <img src="imagenes/logo.png" alt="Todo piletas">
+        <img src="../imagenes/logo.png" alt="Todo piletas">
       </a>
     </div>
     <nav class="header_nav">
@@ -35,16 +35,49 @@
   </section>
   <section id="formulario_contacto">
     
-    <form action="procesar_formulario.php" method="post" >
+    <form action="https://formspree.io/f/xwpkbddd" method="post" id="form-contacto"> 
       <label for="nombre">Nombre: *</label>
       <input type="text" id="nombre" name="nombre" required>
       <label for="correo">Correo electrónico: *</label>
       <input type="email" id="correo" name="correo" required>
       <label for="mensaje">Mensaje: * </label>
       <textarea id="mensaje" name="mensaje" rows="10" required></textarea>
-      <button type="submit">Enviar</button>
+      <button type="submit" id="form-boton">Enviar</button>
+      <p id="form-contacto-status"></p>
     </form>
   </section>
- 
+ <!-- este script es para el formulario, sacado de la página de formspree -->
+<script>
+  var form = document.getElementById("form-contacto");
+  
+  async function handleSubmit(event) {
+    event.preventDefault();
+    var status = document.getElementById("form-contacto-status");
+    var data = new FormData(event.target);
+    fetch(event.target.action, {
+      method: form.method,
+      body: data,
+      headers: {
+          'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        status.innerHTML = "Muchas gracias por su mensaje! Nos pondremos en contacto a la brevedad";
+        form.reset()
+      } else {
+        response.json().then(data => {
+          if (Object.hasOwn(data, 'errors')) {
+            status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+          } else {
+            status.innerHTML = "Oops! Hubo un problema al enviar el formulario"
+          }
+        })
+      }
+    }).catch(error => {
+      status.innerHTML = "Oops! Hubo un problema al enviar el formulario"
+    });
+  }
+  form.addEventListener("submit", handleSubmit)
+</script>
 </body>
 </html>
