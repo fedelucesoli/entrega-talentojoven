@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Todo piletas</title>
   <!-- <link rel="stylesheet" href="estilos/reset.css"> -->
   <link rel="stylesheet" href="estilos/estilos.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=SUSE:wght@100..800&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -22,7 +22,9 @@
       <ul class="nav">
         <li class="nav_item"><a href="index.html">Productos</a></li>
         <li class="nav_item"><a href="quienes-somos.html">Quienes somos</a></li>
-        <li class="nav_item activo"><a href="contacto.html">Contacto</a></li>
+        <li class="nav_item activo"><a href="contacto.html">Contacto</a></li>}
+        <li class="nav_item " id="carrito">Carrito</li>
+
       </ul>
     </nav>
   </header> 
@@ -45,44 +47,10 @@
       <button type="submit" id="form-boton">Enviar</button>
       <p id="form-contacto-status"></p>
     </form>
+    
   </section>
- <!-- este script es para el formulario, sacado de la página de formspree -->
-<script>
-  var form = document.getElementById("form-contacto");
-  
- async function handleSubmit(event) {
-    event.preventDefault();
-    var status = document.getElementById("form-contacto-status");
-    var data = new FormData(event.target);
-    if (data.get("nombre") === "" || data.get("correo") === "" || data.get("mensaje") === "") {
-      status.innerHTML = "Por favor complete todos los campos";
-      console.log("falta completar campos")
-      return;
-    }
-    fetch(event.target.action, {
-      method: form.method,
-      body: data,
-      headers: {
-          'Accept': 'application/json'
-      }
-    }).then(response => {
-      if (response.ok) {
-        status.innerHTML = "Muchas gracias por su mensaje! Nos pondremos en contacto a la brevedad";
-        form.reset()
-      } else {
-        response.json().then(data => {
-          if (Object.hasOwn(data, 'errors')) {
-            status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-          } else {
-            status.innerHTML = "Oops! Hubo un problema al enviar el formulario"
-          }
-        })
-      }
-    }).catch(error => {
-      status.innerHTML = "Oops! Hubo un problema al enviar el formulario"
-    });
-  }
-  form.addEventListener("submit", handleSubmit)
-</script>
+
+  <script src="js/contacto.js"></script>
+
 </body>
 </html>
