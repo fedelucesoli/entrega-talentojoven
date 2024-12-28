@@ -22,8 +22,7 @@
       <ul class="nav">
         <li class="nav_item"><a href="index.html">Productos</a></li>
         <li class="nav_item"><a href="quienes-somos.html">Quienes somos</a></li>
-        <li class="nav_item activo"><a href="contacto.html">Contacto</a></li>}
-        <li class="nav_item " id="carrito">Carrito</li>
+        <li class="nav_item activo"><a href="contacto.html">Contacto</a></li>
 
       </ul>
     </nav>
@@ -36,7 +35,8 @@
     <!-- <img src="imagenes/banner.jpg" alt="Imagen de piletas"> -->
   </section>
   <section id="formulario_contacto">
-    
+    <div class="formulario-container">
+      <div class="formulario-columna">
     <form action="https://formspree.io/f/xwpkbddd" method="post" id="form-contacto"> 
       <label for="nombre">Nombre: *</label>
       <input type="text" id="nombre" name="nombre" >
@@ -47,7 +47,11 @@
       <button type="submit" id="form-boton">Enviar</button>
       <p id="form-contacto-status"></p>
     </form>
-    
+  </div>
+  <div class="imagenes-columna">
+    <img src="imagenes/quienes-somos/imagen1.jpg" alt="Imagen 1" class="img-responsive">
+  </div>
+</div>
   </section>
 
   <script src="js/contacto.js"></script>
