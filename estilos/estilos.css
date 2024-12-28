@@ -255,14 +255,29 @@ input, textarea{
   .banner_quienesomos{
     background-color: #FEB834 !important;  
   }
+
+
   #quienes-somos{
     margin-top: 1rem;
     margin-bottom: 1rem;
     
   }
   @media (min-width: 768px) {
-    #quienes-somos{
-      max-width: 800px;
+    #quienes-somos #texto{
+      margin: auto;
+      max-width: 600px;
+    }
+  }
+
+  .imagenes-columnas{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+    grid-gap: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .imagenes-columnas {
+      grid-template-columns: 1fr;
     }
   }
 
