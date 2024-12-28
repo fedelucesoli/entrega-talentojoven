@@ -248,6 +248,7 @@ input, textarea{
     background-color: #6F2682;
     color: white;
   }
+
   .img-responsive{
     max-width: 100%;
   }
@@ -297,7 +298,7 @@ input, textarea{
     padding: 3rem 1rem 2rem ;
     overflow-y: auto;
     z-index: 1000;
-    transition: right 1s ease-in-out;
+    transition: right 0.5s ease-in-out;
 
   }
 

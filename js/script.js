@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function(){
         <h3>${producto.nombre}</h3>
         <p>Stock: <span id="stock-${key}">${producto.stock}</span></p>
         <p> $${producto.precio}</p>
-        <button class="btn btn-primary" onclick="agregarAlCarrito('${producto.nombre}', ${producto.precio}, '${key}')">Agregar al carrito</button>
+        <button class="boton-comprar" onclick="agregarAlCarrito('${producto.nombre}', ${producto.precio}, '${key}')">Agregar al carrito</button>
       </div>
     `;
     contenedor.innerHTML += template;
